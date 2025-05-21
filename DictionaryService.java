@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class DictionaryService {
 
-    private static DictionaryValidator dictionaryValidator; // 4
+    private static DictionaryValidator dictionariesValidator; // 4 9
 
     private static DictionaryMapper dictionaryMapper; // 4
 
@@ -101,7 +101,7 @@ public class DictionaryService {
         }
     }
 
-    @Transactional
+    @Transient // 9
     public boolean deleteDictionary(Long id, Long userId) {
         Optional<Dictionary> optionalDictionary = getDictionary(id);
 
@@ -140,7 +140,7 @@ public class DictionaryService {
 
         List<DictionaryDto> notes = page
                 .stream()
-                .map(dictionaryMapper::toDto)
+                .map(dictionaryMapper::toDictionaryDto) // 9
                 .collect(Collectors.toList());
 
         return GetUserDictionariesResponseDto.<DictionaryDto>builder()
