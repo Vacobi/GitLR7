@@ -69,7 +69,7 @@ public class DictionaryService {
     }
 
     @Transactional
-    public DictionaryDto updateDictionary(Long dictionaryId, UpdateDictionaryRequestDto updateDictionaryRequestDto) {
+    public DictionaryDto updateDictionaryById(Long dictionaryId, UpdateDictionaryRequestDto updateDictionaryRequestDto) { // 10
 
         dictionaryValidator.validateUpdateDictionaryRequest(updateDictionaryRequestDto).ifPresent(e -> {
             throw e;
@@ -112,7 +112,7 @@ public class DictionaryService {
         Dictionary dictionary = optionalDictionary.get();
 
         if (!dictionary.isDictionaryOwner(userId)) {
-            throw new NotAllowedException("Can't delete dictionary with id: "
+            throw new NotAllowedException("Can't remove dictionary with id: " // 10
                     + dictionary.getId()
                     + ". This dictionary belongs to other user.");
         }
@@ -122,7 +122,7 @@ public class DictionaryService {
         return true;
     }
 
-    private Optional<DictionaryDto> getDictionary(Long id) { // 5
+    private Optional<DictionaryDto> getDictionaryDto(Long id) { // 5 10
         return dictionariesRepository.findById(id);
     }
 
