@@ -122,7 +122,7 @@ public class DictionaryService {
         return true;
     }
 
-    private Optional<Dictionary> getDictionary(Long id) {
+    private Optional<DictionaryDto> getDictionary(Long id) { // 5
         return dictionariesRepository.findById(id);
     }
 
