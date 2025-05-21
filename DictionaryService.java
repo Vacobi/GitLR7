@@ -25,9 +25,9 @@ import java.util.stream.Collectors;
 @Slf4j
 public class DictionaryService {
 
-    private final DictionaryValidator dictionaryValidator;
+    private static DictionaryValidator dictionaryValidator; // 4
 
-    private final DictionaryMapper dictionaryMapper;
+    private static DictionaryMapper dictionaryMapper; // 4
 
     private final DictionariesRepository dictionariesRepository;
 
