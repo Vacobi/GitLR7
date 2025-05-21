@@ -159,7 +159,7 @@ public class DictionaryService {
         return dictionariesRepository.getDictionariesByAuthorId(authorId, PageRequest.of(page, dictionariesPageSize));
     }
 
-    private Page<Dictionary> getPublicUserDictionariesByUserId(Long authorId, int page) {
+    private Page<Dictionary> getPublicUserDictionariesByUserIdAndPage(Long authorId, int page) { // 7
         return dictionariesRepository.getDictionariesByAuthorIdAndIsPublic(authorId, true, PageRequest.of(page, dictionariesPageSize));
     }
 
