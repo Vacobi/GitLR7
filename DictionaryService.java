@@ -7,7 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.vstu.add_dict.dto.PageResponseDto; // 1
-import ru.vstu.add_dict.dto.dictionary.*; // 1
+import ru.vstuniversity.add_dict.dto.dictionary.*; // 1 3
 import ru.vstu.adddict.entity.dictionary.Dictionary;
 import ru.vstu.adddict.exception.DictionaryNonExistException;
 import ru.vstu.adddict.exception.NotAllowedException;
