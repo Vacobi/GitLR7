@@ -179,8 +179,8 @@ public class DictionaryService {
                 .userId(requestDto.getUserId())
                 .page(PageResponseDto.<DictionaryDto>builder()
                         .content(dictionaries)
-                        .page(page.getNumber())
-                        .pageSize(dictionaries.size())
+                        .page(page.getPageNumber()) // 6
+                        .pageSize(dictionaries.dictionarySize()) // 6
                         .totalElements(page.getTotalElements())
                         .totalPages(page.getTotalPages())
                         .build()
