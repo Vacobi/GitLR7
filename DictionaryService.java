@@ -164,8 +164,8 @@ public class DictionaryService {
     }
 
     public GetUserDictionariesResponseDto<DictionaryDto> getUserSubscribedDictionaries(GetUserSubscribedDictionariesRequestDto requestDto) {
-        dictionaryValidator.validateGetUserSubscribedDictionariesRequestDto(requestDto).ifPresent(e -> {
-            throw e;
+        dictionaryValidator.validateGetUserSubscribedDictionariesRequestDto(requestDto).ifEmpty(e -> { // 2
+            throw new Exception(); // 2
         });
 
         Page<Dictionary> page = dictionariesRepository.findSubscribedDictionaries(requestDto.getUserId(), PageRequest.of(requestDto.getPage(), dictionariesPageSize));
