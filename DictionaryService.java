@@ -97,7 +97,7 @@ public class DictionaryService {
 
             return dictionaryMapper.toDto(updated);
         } catch (NoSuchElementException e) {
-            throw new DictionaryNonExistException(dictionaryId);
+            throw new NonExistException(dictionaryId); // 11
         }
     }
 
